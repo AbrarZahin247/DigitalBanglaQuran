@@ -3,20 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Responsive Column with List and Description</title>
+  <title>Digital Bangla Quran</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Lateef&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lateef&family=Noto+Sans+Bengali:wght@600&display=swap" rel="stylesheet">
 
 
   <style>
-        .noto-sans arabic-style {
-  font-family: "Noto Sans Arabic", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
-}
+    
+    .noto-sans arabic-style {
+      font-family: "Noto Sans Arabic", sans-serif;
+      font-optical-sizing: auto;
+      font-weight: 700;
+      font-style: normal;
+      font-variation-settings:
+        "wdth" 100;
+    }
     .ayat{
         font-family: "Lateef", serif;
         font-weight: 400;
@@ -26,9 +27,9 @@
     }
 
     .ayat-bangla{
-        font-family: "Arial";
+        font-family: "Noto Sans Bengali", sans-serif;
         font-weight: 600;
-        font-size: 1rem;
+        font-size: 2rem;
     }
 
     .sura-details{
@@ -46,13 +47,17 @@
       width: 60px;
       height: 60px;
     }
-    .light-cont{
-      background-color: #eae8f8;
+    .dark-cont{
+      background-color: #221675;
       height: 100%;
     }
 
     .highlighted {
         background-color: yellow;
+    }
+
+    .pointer{
+      cursor: pointer;
     }
 
   </style>
@@ -65,12 +70,12 @@
         </div>
         <!--Slider-->
         <div class="col-md-8">
-          <div class="light-cont">
+          <div class="dark-cont">
             <div class="row justify-content-center">
-              <div class="col-6"><h6 class="text-end">Show Bangla Text</h6></div>
+              <div class="col-6"><h6 class="text-end text-white fw-bolder">Show Bangla Text</h6></div>
                 <div class="col-6 form-check form-switch">
                   <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
-                  <label class="form-check-label" for="flexSwitchCheckDefault"><h6 class="text-end">Show Arabic Text</h6></label>
+                  <label class="form-check-label" for="flexSwitchCheckDefault"><h6 class="text-end text-white fw-bolder">Show Arabic Text</h6></label>
                 </div>
             </div>
             <!--Search Box-->
@@ -78,7 +83,7 @@
               <div class="col-md-8">
                 <div class="col-md-8 input-group mb-3">
                   <input id="searchbox" type="text" class="form-control" placeholder="Enter Bangla Keyword" aria-label="Enter Bangla Keyword" aria-describedby="button-addon2">
-                  <button class="btn btn-outline-primary" type="button" id="searchbtn">Search</button>
+                  <button class="btn btn-danger" type="button" id="searchbtn">Search</button>
                 </div>
               </div>
             </div>            
@@ -156,6 +161,7 @@
                                 const ayatItem = document.createElement('li');
                                 ayah_item.id=`p-${ayah_item.numberInSurah}`
                                 ayatItem.classList.add('list-group-item');
+                                
 
                                 const paraElement = document.createElement('p');
                                 paraElement.classList.add('ayat');
@@ -182,6 +188,8 @@
 
                                 const paraElement = document.createElement('p');
                                 paraElement.classList.add('ayat-bangla');
+                                // paraElement.classList.add('bangla-font');
+                                
                     
                                 paraElement.textContent = ayah_item[1]
 
@@ -204,6 +212,7 @@
                 // console.log(item)
                 const listItem = document.createElement('li');
                 listItem.classList.add('list-group-item');
+                listItem.classList.add('pointer');
                 listItem.textContent = item;
                 listItem.dataset.suraname = item
 
@@ -234,7 +243,7 @@
                                 ayatItem.classList.add('list-group-item');
 
                                 const paraElement = document.createElement('p');
-                                paraElement.classList.add('ayat-bangla');
+                                paraElement.classList.add("ayat-bangla")
                     
                                 paraElement.textContent = ayah_item[1]
 
@@ -262,6 +271,8 @@
 
             const banglaAyat = document.createElement('p');
             banglaAyat.classList.add('ayat-bangla');
+            // banglaAyat.classList.add('bangla-font');
+            
 
             banglaAyat.textContent = ayah_item[2]
 
@@ -276,7 +287,7 @@
             descriptionList.appendChild(ayatItem)
         })
       })
-      console.log(inputValue)
+      // console.log(inputValue)
     });
 
 
